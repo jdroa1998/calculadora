@@ -2,9 +2,9 @@ package calculadora2019_1;
 import java.util.*;
 public class Calculadora2019_1 {
     private int ans;
-    private int control=1;
-    public Calculadora2019_1(){
+    public static void main(String[] args){
         Scanner s=new Scanner(System.in);
+        int control=1;
         while(control!=0){
             System.out.println("Digite:");
             System.out.println("       1- para sumar");
@@ -15,6 +15,7 @@ public class Calculadora2019_1 {
             System.out.println("       6- para adicionar al ans");
             System.out.println("       7- para sustraccion al ans");
             System.out.println("       0- para cerra el sistema");
+            control=s.nextInt();
         }
     }
     
