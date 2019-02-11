@@ -1,10 +1,11 @@
 package calculadora2019_1;
 import java.util.*;
 public class Calculadora2019_1 {
-    private int ans;
+    private static int ans;
+    static Scanner s=new Scanner(System.in);
     public static void main(String[] args){
-        Scanner s=new Scanner(System.in);
-        int control=1;
+        
+        int control=1,x=0,y=0,ans2=0;
         while(control!=0){
             System.out.println("Digite:");
             System.out.println("       1- para sumar");
@@ -16,51 +17,93 @@ public class Calculadora2019_1 {
             System.out.println("       7- para sustraccion al ans");
             System.out.println("       0- para cerra el sistema");
             control=s.nextInt();
+            if(control<5 && control!=0){
+                System.out.println("Digite el primer numero para la operacion");
+                x=s.nextInt();
+                System.out.println("Digite el segundo numero para la operacion");
+                y=s.nextInt();
+            }
+            if(control==1){
+                System.out.println(x+" + "+y+" = "+suma(x,y));
+            }
+            else if(control==2){
+                System.out.println(x+" - "+y+" = "+resta(x,y));
+            }
+            else if(control==3){
+                System.out.println(x+" * "+y+" = "+multiplicar(x,y));
+            }
+            else if(control==4){
+                dividir(x,y);
+            }
+            else if(control==5){
+                System.out.println("Digite la base de la potencia");
+                x=s.nextInt();
+                System.out.println("Digite el exponente de la potencia");
+                y=s.nextInt();
+                System.out.println(x+" ^ "+y+" = "+potencia(x,y));
+            }
+            else if(control==6){
+                System.out.println("Digite numero a adicionar");
+                y=s.nextInt();
+                ans2=ans;
+                System.out.println("ans ="+ans2+" + "+y+" = "+adicionar(y));
+            }
+            else if(control==7){
+                System.out.println("Digite numero a sustraer");
+                y=s.nextInt();
+                ans2=ans;
+                System.out.println("ans ="+ans2+" - "+y+" = "+sustraer(y));
+            }
+            else if(control==0){
+                System.out.println("Cerrando sistema...");
+            }
         }
     }
     
-    public int suma(int a, int b){
+    public static int suma(int a, int b){
         ans=a+b;
         return ans;
     }
     
-    public int resta(int a, int b){
+    public static int resta(int a, int b){
         ans=a-b;
         return ans;
     }
+    public static int multiplicar(int a, int b){
+        ans=a*b;
+        return ans;
+    }
+    public static int potencia(int a, int b){
+        ans=(int)Math.pow(a,b);
+        return ans;
+    }
     
-    public int adicionar(int v){
+    public static int adicionar(int v){
         ans=ans+v;
         return ans;
     }
     
-    public int sustraer(int v){
+    public static int sustraer(int v){
         ans=ans-v;
         return ans;
     }
     
-    public int devolver_ans(){
+    public static int devolver_ans(){
         return ans;
     }
     
-    public void clear(){
+    public static void clear(){
         ans=0;
     }
     
-    public int dividir(int a, int b){
-        if (b==0){
-            throw new ArithmeticException("no se puede dividir por cero");
+    public static int dividir(int a, int b){
+        while (b==0){
+            System.out.println("introduzca un divisor mayor a cero");
+            b=s.nextInt();
         }
         ans=a/b;
+        System.out.println(a+" / "+b+" = "+ans);
         return ans;
     }
-    
-    public void operaciontiempo(){
-        try{
-            Thread.sleep(2000);
-        }
-        catch(InterruptedException e) {
-            
-        }
-    }
+ 
 }
