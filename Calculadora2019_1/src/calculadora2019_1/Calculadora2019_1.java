@@ -1,8 +1,21 @@
 package calculadora2019_1;
+import java.util.*;
 public class Calculadora2019_1 {
     private int ans;
+    private int control=1;
     public Calculadora2019_1(){
-        ans=0;
+        Scanner s=new Scanner(System.in);
+        while(control!=0){
+            System.out.println("Digite:");
+            System.out.println("       1- para sumar");
+            System.out.println("       2- para restar");
+            System.out.println("       3- para multiplicar");
+            System.out.println("       4- para Dividar");
+            System.out.println("       5- para elevar a potencia");
+            System.out.println("       6- para adicionar al ans");
+            System.out.println("       7- para sustraccion al ans");
+            System.out.println("       0- para cerra el sistema");
+        }
     }
     
     public int suma(int a, int b){
