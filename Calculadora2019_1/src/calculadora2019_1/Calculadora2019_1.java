@@ -2,7 +2,7 @@ package calculadora2019_1;
 import java.util.*;
 
 public class Calculadora2019_1 {
-    private static int ans;
+    private static int ans=0;
     static Scanner s=new Scanner(System.in);
     public static void main(String[] args){
         
